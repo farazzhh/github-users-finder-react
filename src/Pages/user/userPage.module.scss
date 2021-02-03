@@ -1,0 +1,25 @@
+.user_profile_image{
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.userName{
+    color: black;
+    text-transform: capitalize;
+    display: block;
+
+}
+
+.userProfile_detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+}
+.user_profile_repsos{
+
+}
