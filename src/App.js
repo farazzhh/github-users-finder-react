@@ -9,10 +9,9 @@ import { Contact } from "./Pages/contact/Contact";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
-  
   const [users, setUsers] = useState([]);
   const [showSpinner, setSpinner] = useState(false);
-  
+
   async function searchData(textInput) {
     setSpinner(true);
     const searchUser = await axios.get(
@@ -22,28 +21,13 @@ function App() {
     setSpinner(false);
     console.log(searchUser);
   }
-  
-  useEffect(() => {
-    async function getData() {
-      setSpinner(true);
-      const resultApi = await axios.get("https://api.github.com/users");
-      setSpinner(false);
-
-      setUsers(resultApi.data);
-    }
-    getData();
-  }, []);
 
   return (
     <Router>
       <div className="App">
         <Nav />
         <Route exact path="/">
-          <UsersPage
-            searchData={searchData}
-            showSpinner={showSpinner}
-            users={users}
-          />
+          <UsersPage searchData={searchData} showSpinner={showSpinner} />
         </Route>
         <Route exact path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
